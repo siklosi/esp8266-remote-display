@@ -226,10 +226,7 @@ void setup() {
       }
     }
     if (serverClient && serverClient.connected() && once == 0) { // send data to Client
-      serverClient.print("Telnet Test, millis: ");
-      serverClient.println(millis());
-      serverClient.print("Free Heap RAM: ");
-      serverClient.println(ESP.getFreeHeap());
+      //serverClient.println("display v0.1");
       once = 1;
     }
 
