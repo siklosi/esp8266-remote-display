@@ -8,7 +8,7 @@ tn = telnetlib.Telnet(deviceip)
 def setOrientation(orientation): #/0=0deg,1=90deg,2=180deg,3=270deg tft screen rotation
   tn.write(b"1,%d\r" % (orientation))  
 def dText(sText,xPos,yPos,font_type,red,green,blue):
-    tn.write(b"2,%s,%d,%d,%d,%d,%d,%d\r" % (bytes(sText,'ascii'),xPos,yPos,font_type,red,green,blue))
+    tn.write(b"2,%s,%d,%d,%d,%d,%d,%d\r" % (bytes(sText,'ascii'),xPos,yPos,font_type,red,green,blue,red_background,green_background,blue_background))
 def drawRect(xPos,yPos,width,height,cornerRadius,red,green,blue):
     tn.write(b"3,%d,%d,%d,%d,%d,%d,%d,%d\r" % (xPos,yPos,width,height,cornerRadius,red,green,blue))
 def fillRect(xPos,yPos,width,height,cornerRadius,red,green,blue):
@@ -30,4 +30,4 @@ def setBrightnest(brightnestValue):
 #backgroundColor(0,0,0)
 
 fillRect(30,10,250,75,0,0,0,0)
-dText(datetime.datetime.now().strftime('%H:%M'),30,10,8,100,100,100)
+dText(datetime.datetime.now().strftime('%H:%M'),30,10,8,100,100,100,0,0,0)
