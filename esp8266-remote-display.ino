@@ -164,6 +164,8 @@ void setup() {
     Serial.println("connected...yeey :)");
     tft.setCursor(120, 122);
     tft.println(WiFi.localIP());
+    delay(3000);
+    tft.fillScreen(TFT_BLACK);
     telnetServer.begin();
     telnetServer.setNoDelay(true);
     httpUpdater.setup(&httpServer);
