@@ -13,7 +13,7 @@ WiFiClient serverClient;
 ESP8266WebServer httpServer(80);
 ESP8266HTTPUpdateServer httpUpdater;
 
-int xPos, Ypos, rCol, gCol, bCol, w , h;
+int xPos, Ypos, rCol, gCol, bCol, rbCol, gbCol, bbCol, w , h;
 char sFont[64];
 
 String dataTel;
@@ -33,7 +33,10 @@ void fText()
   int rCol = getValue(dataTel, ',', 5).toInt();
   int gCol = getValue(dataTel, ',', 6).toInt();
   int bCol = getValue(dataTel, ',', 7).toInt();
-  tft.setTextColor(tft.color565(rCol, gCol, bCol));
+  int rbCol = getValue(dataTel, ',', 8).toInt();
+  int gbCol = getValue(dataTel, ',', 9).toInt();
+  int bbCol = getValue(dataTel, ',', 10).toInt();
+  tft.setTextColor(tft.color565(rCol, gCol, bCol),tft.color565(rbCol, gbCol, bbCol));
   tft.setCursor(xPos, yPos);
   tft.setTextFont(sFont);
   tft.println(sText);
