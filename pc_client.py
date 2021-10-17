@@ -16,9 +16,9 @@ def fillRect(xPos,yPos,width,height,cornerRadius,red,green,blue):
 def drawLine(xPos,yPos,width,height,red,green,blue):
     tn.write(b"5,%d,%d,%d,%d,%d,%d,%d\r" % (xPos,yPos,width,height,red,green,blue))
 def drawCircle(xPos,yPos,ra,red,green,blue):
-    tn.write(b"6,%d,%d,%d,%d,%d,%d,%d,%d\r" % (xPos,yPos,ra,red,green,blue))
+    tn.write(b"6,%d,%d,%d,%d,%d,%d\r" % (xPos,yPos,ra,red,green,blue))
 def fillCircle(xPos,yPos,radius,red,green,blue):
-    tn.write(b"7,%d,%d,%d,%d,%d,%d,%d,%d\r" % (xPos,yPos,radius,red,green,blue))
+    tn.write(b"7,%d,%d,%d,%d,%d,%d\r" % (xPos,yPos,radius,red,green,blue))
 def backgroundColor(red,green,blue):
     tn.write(b"8,%d,%d,%d\r" % (red,green,blue))
     #time.sleep(.1) #tft needs some time to fill display with color
